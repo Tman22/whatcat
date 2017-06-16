@@ -22,7 +22,6 @@ var sadessList = require('./sadness.js');
 var surpriseList = require('./surprise.js');
 // Setting a global selfieUrl so each time it runs, this data is overwritten.
 var selfieUrl;
-
 // This is just our random picker that grabs a random item from each of the lists for the emotions
 Array.prototype.pick = function() {
   return this[Math.floor(Math.random()*this.length)];
@@ -41,7 +40,7 @@ app.get('/', function (req, res) {
 
 
 // Once a connection is made to the server, open up the socket communication.
-io.on('connection', function(socket) { 
+io.on('connection', function(socket) {
 
   // When the client emits selfiePath, we are getting the image data passed to the server where we save it locally and send it over to the emotion api to analyze.
   socket.on('selfiePath', function (selfiePath) {
